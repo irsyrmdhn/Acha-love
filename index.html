@@ -80,7 +80,7 @@
   <h1>Kenangan Bersama ❤️</h1>
   <p>Momen-momen kita selalu membekas di hatiku.</p>
   <!-- Ganti URL gambar di bawah dengan gambar kalian sendiri jika diinginkan -->
-  <img src="https://i.ibb.co/tpjdV0Nv/Whats-App-Image-2025-02-09-at-14-03-14.jpg" alt="Kenangan Kita" width="300">
+  <img src="https://drive.google.com/file/d/1pdwLFI8XwUC-ymlHFZjALc-l5GiWSegl/view?usp=sharing" alt="Kenangan Kita" width="300">
   <p>(Tambahkan foto kalian jika ada)</p>
 
   <div class="music-icon">🎵 Musik sedang diputar...</div>
@@ -143,14 +143,16 @@
     if (clickCount === 1) {
       yaButton.textContent = "Yakin Nggak?";
     } else if (clickCount === 2) {
-      yaButton.textContent = "Plisss Ya!";
+      yaButton.textContent = "Jangan Jahat Dong!";
     } else if (clickCount === 3) {
-      yaButton.textContent = "Aku Mau Kamu Maafin Aku!";
+      yaButton.textContent = "Plisss Ya!";
     } else if (clickCount === 4) {
+      yaButton.textContent = "Aku Mau Kamu Maafin Aku!";
+    } else if (clickCount === 5) {
       yaButton.textContent = "YA!";
       // Sembunyikan tombol Tidak
       tidakButton.classList.add("hidden");
-    } else if (clickCount === 5) {
+    } else if (clickCount === 6) {
       // Berhasil maafin, pindah ke halaman terima kasih
       document.getElementById("closing").classList.add("hidden");
       document.getElementById("thankYouPage").classList.remove("hidden");
