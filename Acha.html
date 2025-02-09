@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Firyal ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 50px;
+            color: #333;
+        }
+        h1 {
+            color: #ff6f61;
+        }
+        p {
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #yaButton {
+            background-color: #4caf50;
+            color: white;
+        }
+        #tidakButton {
+            background-color: #f44336;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #4caf50;
+            color: white;
+            font-size: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Utama -->
+    <div id="home">
+        <h1>Selamat Datang di Dunia Firyal ❤️</h1>
+        <p>Halo, Firyal Nihalya Salsabilla...</p>
+        <p>Aku tahu aku salah, tapi aku sangat mencintaimu.</p>
+        <button onclick="showAbout()">Lanjutkan</button>
+    </div>
+
+    <!-- Halaman Tentang Firyal -->
+    <div id="about" class="hidden">
+        <h1>Tentang Firyal ❤️</h1>
+        <p>Firyal adalah orang yang paling istimewa di dunia ini.</p>
+        <p>Berikut beberapa alasan mengapa aku mencintaimu:</p>
+        <ul>
+            <li>Kebaikan hatimu tak tertandingi.</li>
+            <li>Semuanya indah saat bersamamu.</li>
+            <li>Kamu adalah cahaya dalam hidupku.</li>
+        </ul>
+        <button onclick="showApology()">Lanjutkan</button>
+    </div>
+
+    <!-- Halaman Maaf -->
+    <div id="apology" class="hidden">
+        <h1>Aku Minta Maaf ❤️</h1>
+        <p>Aku minta maaf atas semua kesalahanku.</p>
+        <p>Aku janji akan lebih baik lagi untukmu.</p>
+        <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="Maaf Ya">
+        <button onclick="showMemories()">Lanjutkan</button>
+    </div>
+
+    <!-- Halaman Kenangan -->
+    <div id="memories" class="hidden">
+        <h1>Kenangan Bersama ❤️</h1>
+        <p>Momen-momen kita selalu membekas di hatiku.</p>
+        <img src="https://via.placeholder.com/400" alt="Kenangan Kita">
+        <p>(Tambahkan foto kalian jika ada)</p>
+        <div class="music-icon">🎵 Musik sedang diputar...</div>
+        <audio autoplay loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Browsermu tidak mendukung audio.
+        </audio>
+        <button onclick="showClosing()">Lanjutkan</button>
+    </div>
+
+    <!-- Halaman Penutup -->
+    <div id="closing" class="hidden">
+        <h1>Terima Kasih ❤️</h1>
+        <p>Firyal, aku sangat mencintaimu.</p>
+        <p>Semoga kamu bisa memaafkanku.</p>
+        <p class="message">Maafin aku ya?</p>
+        <button id="yaButton" onclick="handleYa()">Ya</button>
+        <button id="tidakButton" onclick="handleTidak()">Tidak</button>
+    </div>
+
+    <!-- Halaman Terima Kasih -->
+    <div id="thankYouPage" class="hidden">
+        <h1>Terima Kasih ❤️</h1>
+        <p>Makasih udah maafin aku, Firyal! Aku janji bakal lebih baik lagi ❤️.</p>
+        <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="GIF Senang">
+    </div>
+
+    <script>
+        let clickCount = 0;
+
+        // Fungsi untuk menampilkan halaman berikutnya
+        function showAbout() {
+            document.getElementById("home").classList.add("hidden");
+            document.getElementById("about").classList.remove("hidden");
+        }
+
+        function showApology() {
+            document.getElementById("about").classList.add("hidden");
+            document.getElementById("apology").classList.remove("hidden");
+        }
+
+        function showMemories() {
+            document.getElementById("apology").classList.add("hidden");
+            document.getElementById("memories").classList.remove("hidden");
+        }
+
+        function showClosing() {
+            document.getElementById("memories").classList.add("hidden");
+            document.getElementById("closing").classList.remove("hidden");
+        }
+
+        function handleYa() {
+            // Langsung pindah ke halaman terima kasih
+            document.getElementById("closing").classList.add("hidden");
+            document.getElementById("thankYouPage").classList.remove("hidden");
+        }
+
+        function handleTidak() {
+            const yaButton = document.getElementById("yaButton");
+            const tidakButton = document.getElementById("tidakButton");
+
+            clickCount++;
+
+            // Perbesar tombol Ya setiap kali tombol Tidak ditekan
+            yaButton.style.fontSize = `${20 + clickCount * 10}px`;
+            yaButton.style.padding = `${10 + clickCount * 5}px ${20 + clickCount * 10}px`;
+
+            // Ubah teks tombol Ya menjadi lebih gaul
+            if (clickCount === 1) {
+                yaButton.textContent = "Yakin Nggak?";
+            } else if (clickCount === 2) {
+                yaButton.textContent = "Jangan Jahat Dong!";
+            } else if (clickCount === 3) {
+                yaButton.textContent = "Plisss Ya!";
+            } else if (clickCount === 4) {
+                yaButton.textContent = "Aku Mau Kamu Maafin Aku!";
+            } else if (clickCount === 5) {
+                yaButton.textContent = "YA!";
+                tidakButton.classList.add("hidden"); // Hilangkan tombol Tidak
+
+                // Ganti konten halaman dengan tombol full screen
+                setTimeout(() => {
+                    document.body.innerHTML = `
+                        <div class="full-screen" id="fullScreenButton" onclick="showThankYouPage()">
+                            YA
+                        </div>
+                    `;
+                }, 500);
+            }
+        }
+
+        function showThankYouPage() {
+            document.body.innerHTML = `
+                <div id="thankYouPage">
+                    <h1>Terima Kasih ❤️</h1>
+                    <p>Makasih udah maafin aku, Firyal! Aku janji bakal lebih baik lagi ❤️.</p>
+                    <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="GIF Senang">
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
